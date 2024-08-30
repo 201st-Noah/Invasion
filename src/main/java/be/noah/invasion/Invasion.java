@@ -1,8 +1,11 @@
 package be.noah.invasion;
 
 import be.noah.invasion.block.ModBlocks;
+import be.noah.invasion.entity.ModEntities;
+import be.noah.invasion.entity.client.TurretRenderer;
 import be.noah.invasion.item.ModItems;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -33,6 +36,7 @@ public class Invasion
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -62,7 +66,7 @@ public class Invasion
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntities.TURRET.get(), TurretRenderer::new);
         }
     }
 }
