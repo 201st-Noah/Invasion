@@ -48,4 +48,5 @@ public class TurretModel<T extends Entity> extends EntityModel<T> {
 		head.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
 		body.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
 	}
+
 }
